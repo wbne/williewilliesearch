@@ -2,11 +2,13 @@
     <head>
         <link rel="stylesheet" type="text/css" href="./style.css">   
         <title>WillieWillieSearch</title>
+        <link rel="icon" type="image/x-icon" href="./img/williesus.png">
         <script src="https://d3js.org/d3.v6.min.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Petemoss&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
     </head>
     <body>
-        <div id="logo"></div>
+        <div style="margin-bottom:-45px;" id="logo"></div>
         <h1>WillieWillieSearch</h1>
         <div class="container">
             <div class="gcse-search"></div>
@@ -15,20 +17,20 @@
 
         <div class="wrapper">
             <div>
-                <img id="logo" src="./img/williethumb.jpg">
+                <img style="height:600px;" id="logo" src="./img/williethumb.jpg">
                 <p>ask me anything about course grade distributions!</p>
-                <p>you can also ask about specific sections or professors!</p>
-            </div>
-            <div id="willieadvice">
-
-            </div>
-            <div>
-                <p>insert the question box here</p>
-                <input id="qa" type="textarea">
+                <input id="qa" type="textarea" placeholder="e.g. MATH2414">
                 <button onclick="process()">ask</button>
             </div>
+            <div id="willieadvice"></div>
+        </div>
+
+        <div style="padding-top: 50vh;" class="wrapper" id="evil">
+            <p id="quote">willie quote goes here</p>
+            <img style="width:1000px; height: 500px; opacity: 0.3;" src="./img/williethanos.jpg">
         </div>
     </body>
     <script async src="https://cse.google.com/cse.js?cx=a31f8b961f8d5d44e"></script>
     <script src="./askwillie.js"></script>
+    <script src="./willieclone.js"></script>
 </html>

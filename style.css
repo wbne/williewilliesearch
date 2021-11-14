@@ -1,5 +1,9 @@
+html {
+    cursor: url("img/cursor/williecursor.png") 16 16, default;
+    overflow-x: hidden;
+} 
+ 
  body {
-     cursor: url("img/cursor/williecursor.png") 16 16, default;
      margin-top: 20vh;
      height: 100%;
      text-align: center;
@@ -17,7 +21,7 @@ input:hover {
 }
 
 #logo {
-    background: url("img/williethanos.jpg");
+    background: url("img/williehead.gif");
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: auto;
@@ -44,5 +48,29 @@ input:hover {
 .wrapper {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10vh;
+    padding-bottom: 20vh;
+}
+
+#evil {
+    background: linear-gradient(#FFF, 5%, #000);
+    margin-left: -8px;
+    width: 101vw;
+    overflow-x: hidden;
+}
+
+#evil p {
+    color: white;
+    padding-left: 8px;
+    margin-top: 13%;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Pacifico', cursive;
+}
+
+.chaos {
+    opacity: 0.1;
+    z-index: 10;
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
 }

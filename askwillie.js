@@ -2,10 +2,27 @@ const course_data = "./data/data.json"
 let processed_data
 let map = {}
 const bubble = document.getElementById("willieadvice")
+const quotes = [
+    "I did not ban Adresident235",
+    "Fine, I'll do ECS Advising myself",
+    "Project Nebula is an initiative by ACM Development, a group in the UT Dallas chapter of the Association for Computing Machinery.",
+    "I really enjoy answering the same question for the 100th time today.",
+    "This will make a fine addition to my vlog.",
+    "Any quote can seem legitimate with accredidation",
+    "Darn it, where's :thanowillie:",
+    "Congratulations, you've ascended to my level... except I ...[used]... purely using manual queries",
+    "Great, now you have incurred my wrath of regulatory oversight",
+    "This is a sadge moment",
+    "I have sniped a private study room on the second floor of ECSW, and I do not intend on leaving today 🙃"
+]
 
-document.onload = init()
+window.onload = init()
 
 function init() {
+    var quote = document.getElementById("quote")
+    var val = Math.round(Math.random() * 100)
+    quote.innerHTML = quotes[val % quotes.length] + " - Willie Chalmers"
+
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4) {
@@ -22,6 +39,7 @@ function init() {
     httpRequest.open('GET', course_data);
     httpRequest.send(); 
 }
+
 function process() {
     var rawInput = document.getElementById("qa")
     var input = rawInput.value
@@ -29,7 +47,13 @@ function process() {
     var regexProf = /\d/
     if(regexCourse.test(input)) {
         console.log("matched course")
-        getCourse(input)
+        try{
+            getCourse(input)
+        }
+        catch(exception) {
+            bubble.innerHTML = "<p>Please try entering the query again.</p><p>Remember that for courses you don't use spaces (eg. MATH2414)</p>"
+        }
+        
     }
     else if(!regexProf.test(input)) {
         console.log("matched prof")
@@ -44,34 +68,20 @@ function getCourse(courseName) {
     var index = map[courseName]
     var grades = processed_data[index]
     bubble.innerHTML = "<p>The grade distribution for " + grades.name + " is:</p>"
-    //console.log(grades)
-    graphGrades(grades)
-}
 
-function test() {
-    fetch("https://api.utdnebula.com/v1/sections/search?course_number=2020", {
-    method: "GET",
-        headers: {
-            "Authorization" : "dd1h55UQUb8x5nQIPW2iJ1ABaIDx9iv7"
-        }
-    }
-).then((resp) => {
-    resp.json().then((json) => {
-        console.log(json);
-    });
-});
+    graphGrades(grades)
 }
 
 function graphGrades(grades) {
     var localHeight = 600;
     var localWidth = 800;
-    //console.log("here")
+
     data = []
     letters = {'A+': 0, 'A': 0, 'A-': 0, 'B+': 0, 'B': 0, 'B-': 0, 'C+': 0, 'C': 0, 'C-': 0, 'D+': 0, 'D': 0, 'D-': 0, 'F': 0, 'W': 0}
     for (key in letters) {
         data.push({letter: key, count: grades[key]})
     }
-    //console.log(data)
+
     
     d3.select("#willieadvice")
     svg = d3.select("#willieadvice")
