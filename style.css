@@ -1,0 +1,48 @@
+ body {
+     cursor: url("img/cursor/williecursor.png") 16 16, default;
+     margin-top: 20vh;
+     height: 100%;
+     text-align: center;
+     font-family: 'Cairo', sans-serif;
+ }
+
+a:hover {
+    cursor: url("img/cursor/willieclick.png") 1 1, pointer !important;
+}
+button:hover {
+    cursor: url("img/cursor/willieclick.png") 1 1, pointer !important;
+}
+input:hover {
+    cursor: url("img/cursor/willieclick.png") 1 1, pointer !important;
+}
+
+#logo {
+    background: url("img/williethanos.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+#willieadvice {
+    width: 100%;
+}
+
+.container {
+    width: 50vw;
+    margin-left: 25vw;
+}
+
+.padding {
+    padding-bottom: 50vh;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10vh;
+}
